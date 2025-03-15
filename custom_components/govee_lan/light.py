@@ -203,8 +203,11 @@ class GoveLightEntity(LightEntity):
         self._govee_device = device
         self._last_poll = None
         self._attr_supported_features = LightEntityFeature(0)  
-        self._attr_supported_color_modes = set()
         self._attr_color_mode = ColorMode.UNKNOWN        
+        self._attr_supported_color_modes = set()
+        self._attr_supported_color_modes.add(ColorMode.COLOR_TEMP)
+        self._attr_supported_color_modes.add(ColorMode.COLOR_RGB)
+
 
         ident = device.device_id.replace(":", "")
         self._attr_unique_id = f"{device.model}_{ident}"
@@ -265,13 +268,11 @@ class GoveLightEntity(LightEntity):
                 self._attr_color_temp = color.color_temperature_kelvin_to_mired(
                     state.color_temperature
                 )
-                self._attr_supported_color_modes.add(ColorMode.COLOR_TEMP)
                 self._attr_color_mode = ColorMode.COLOR_TEMP
                 self._attr_rgb_color = None
             elif state.color is not None:
                 self._attr_color_temp_kelvin = None
                 self._attr_color_temp = None
-                self._attr_supported_color_modes.add(ColorMode.COLOR_RGB)
                 self._attr_color_mode = ColorMode.RGB
                 self._attr_rgb_color = state.color.as_tuple()
 

@@ -19,6 +19,7 @@ from homeassistant.components.light import (
     ATTR_HS_COLOR,
     ATTR_RGB_COLOR,
     LightEntity,
+    LightEntityFeature,
     PLATFORM_SCHEMA,
 )
 import homeassistant.helpers.config_validation as cv
@@ -206,6 +207,7 @@ class GoveLightEntity(LightEntity):
         self._govee_controller = controller
         self._govee_device = device
         self._last_poll = None
+        self._attr_supported_features = LightEntityFeature(0)    
 
         ident = device.device_id.replace(":", "")
         self._attr_unique_id = f"{device.model}_{ident}"

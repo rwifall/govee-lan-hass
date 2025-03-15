@@ -208,6 +208,7 @@ class GoveLightEntity(LightEntity):
             ColorMode.COLOR_TEMP,
             ColorMode.RGB            
         }  
+        self._attr_color_mode = ColorMode.UNKNOWN        
 
         ident = device.device_id.replace(":", "")
         self._attr_unique_id = f"{device.model}_{ident}"

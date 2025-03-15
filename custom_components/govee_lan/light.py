@@ -203,11 +203,10 @@ class GoveLightEntity(LightEntity):
         self._govee_device = device
         self._last_poll = None
         self._attr_supported_features = LightEntityFeature(0)  
-        self._attr_supported_color_modes = {
-            ColorMode.BRIGHTNESS,
-            ColorMode.COLOR_TEMP,
-            ColorMode.RGB            
-        }  
+        self._attr_supported_color_modes = set()
+        self._attr_supported_color_modes.add(ColorMode.BRIGHTNESS)
+        self._attr_supported_color_modes.add(ColorMode.COLOR_TEMP)
+        self._attr_supported_color_modes.add(ColorMode.RGB)
         self._attr_color_mode = ColorMode.UNKNOWN        
 
         ident = device.device_id.replace(":", "")

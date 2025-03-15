@@ -206,7 +206,7 @@ class GoveLightEntity(LightEntity):
         self._attr_color_mode = ColorMode.UNKNOWN        
         self._attr_supported_color_modes = set()
         self._attr_supported_color_modes.add(ColorMode.COLOR_TEMP)
-        self._attr_supported_color_modes.add(ColorMode.COLOR_RGB)
+        self._attr_supported_color_modes.add(ColorMode.RGB)
 
 
         ident = device.device_id.replace(":", "")

@@ -1,14 +1,14 @@
 {
   "domain": "govee_lan",
   "name": "Govee LAN Control",
-  "codeowners": ["@wez"],
+  "codeowners": ["@rwifall"],
   "config_flow": true,
   "dependencies": ["network", "bluetooth"],
-  "documentation": "https://github.com/wez/govee-lan-hass",
+  "documentation": "https://github.com/rwifall/govee-lan-hass",
   "integration_type": "hub",
   "iot_class": "local_polling",
-  "issue_tracker": "https://github.com/wez/govee-lan-hass/issues",
+  "issue_tracker": "https://github.com/rwifall/govee-lan-hass/issues",
   "loggers": ["govee_led_wez"],
   "requirements": ["govee-led-wez>=0.0.15"],
-  "version": "1.0.0"
+  "version": "1.0.1"
 }

@@ -196,18 +196,18 @@ class GoveLightEntity(LightEntity):
     _govee_device: GoveeDevice
     _attr_min_color_temp_kelvin = 2000
     _attr_max_color_temp_kelvin = 9000
-    _attr_supported_color_modes = {
-        ColorMode.BRIGHTNESS,
-        ColorMode.COLOR_TEMP,
-        ColorMode.RGB,
-    }
 
     def __init__(self, controller: GoveeController, device: GoveeDevice):
         self._attr_extra_state_attributes = {}
         self._govee_controller = controller
         self._govee_device = device
         self._last_poll = None
-        self._attr_supported_features = LightEntityFeature(0)    
+        self._attr_supported_features = LightEntityFeature(0)  
+        self._attr_supported_color_modes = {
+            ColorMode.BRIGHTNESS,
+            ColorMode.COLOR_TEMP,
+            ColorMode.RGB            
+        }  
 
         ident = device.device_id.replace(":", "")
         self._attr_unique_id = f"{device.model}_{ident}"

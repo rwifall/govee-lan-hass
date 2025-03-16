@@ -10,5 +10,5 @@
   "issue_tracker": "https://github.com/rwifall/govee-lan-hass/issues",
   "loggers": ["govee_led_wez"],
   "requirements": ["govee-led-wez>=0.0.15"],
-  "version": "1.0.2"
+  "version": "1.0.3"
 }
